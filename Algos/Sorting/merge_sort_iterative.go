@@ -39,7 +39,7 @@ func mergeSort(a []int64, n int64) []int64 {
 }
 
 func merge(a []int64, start, mid, end int64) {
-	// fmt.Println("\nstart merge")
+	fmt.Println("#######  start merge", start, mid, end)
 	sL := mid - start + 1
 	sR := end - mid
 	L := make([]int64, sL, sL)
@@ -63,6 +63,7 @@ func merge(a []int64, start, mid, end int64) {
 			a[idx] = L[lIdx]
 			lIdx++
 		} else if L[lIdx] > R[rIdx] {
+			fmt.Println("->>>", mid-lIdx+1)
 			a[idx] = R[rIdx]
 			rIdx++
 		}
@@ -87,7 +88,7 @@ func merge(a []int64, start, mid, end int64) {
 func main() {
 	fmt.Println("hi")
 	// a := make([]int64, 5)
-	a := []int64{6, 11, 5, 7, 1, 14, 4, 3, 2, 9, 8, 10, 12, 13}
+	a := []int64{2, 4, 3, 1, 5}
 	fmt.Printf("Array-> %v\nSize-> %d \nStarting sorting...\n", a, len(a))
 	fmt.Println("Result: ", mergeSort(a, int64(len(a))))
 }
